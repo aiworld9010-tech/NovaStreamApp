@@ -38,3 +38,5 @@ yarn-error.*
 
 example
 
+# Ignore android build folder
+android/app/build/
