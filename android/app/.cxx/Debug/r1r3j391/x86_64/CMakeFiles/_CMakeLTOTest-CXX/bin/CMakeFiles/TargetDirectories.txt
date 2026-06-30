@@ -1,0 +1,4 @@
+D:/NovaStreamApp/android/app/.cxx/Debug/r1r3j391/x86_64/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir
+D:/NovaStreamApp/android/app/.cxx/Debug/r1r3j391/x86_64/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir
+D:/NovaStreamApp/android/app/.cxx/Debug/r1r3j391/x86_64/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/edit_cache.dir
+D:/NovaStreamApp/android/app/.cxx/Debug/r1r3j391/x86_64/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/rebuild_cache.dir
