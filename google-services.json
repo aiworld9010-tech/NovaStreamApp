@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "653095193588",
+    "project_id": "novastream-c4d8e",
+    "storage_bucket": "novastream-c4d8e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653095193588:android:a7eed36d85282f009007a1",
+        "android_client_info": {
+          "package_name": "com.njf9210.NovaStreamApp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCodrcICMBpxUq3xnb0rKGzrgXJ4CfgIRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
