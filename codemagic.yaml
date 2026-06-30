@@ -9,6 +9,5 @@ workflows:
       - name: Install dependencies
         script: npm install
       - name: Build Android APK
-        script: cd android && ./gradlew assembleDebug
-    artifacts:
-      - android/app/build/outputs/apk/debug/*.apk
+        # Humne 'cd android' hata diya hai kyunki hum pehle hi root mein hain
+        script: ./gradlew assembleDebug
