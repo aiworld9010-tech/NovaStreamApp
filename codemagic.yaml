@@ -3,11 +3,9 @@ workflows:
     name: Android Debug Build
     max_build_duration: 120
     instance_type: mac_mini_m1
-    # Yahan sahi indenting rakhein
     environment:
       java: 17
       node: 20
-      ANDROID_HOME: /usr/local/lib/android/sdk
     scripts:
       - name: Install dependencies
         script: npm install
