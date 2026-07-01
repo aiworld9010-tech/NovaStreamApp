@@ -40,6 +40,17 @@ android {
                 cppFlags "-std=c++20"
             }
         }
+        subprojects {
+    afterEvaluate { project ->
+        if (project.hasProperty('android')) {
+            project.android {
+                if (compileSdkVersion < 36) {
+                    compileSdkVersion 36
+                }
+            }
+        }
+    }
+}
     }
 
     signingConfigs {
