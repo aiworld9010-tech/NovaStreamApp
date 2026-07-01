@@ -6,7 +6,7 @@ buildscript {
     minSdkVersion = 23
     compileSdkVersion = 36
     targetSdkVersion = 36
-    kotlinVersion = "2.3.0" // Yeh version 25.4.0 AdMob SDK ke sath perfectly chalta hai
+    kotlinVersion = "2.1.0" // Yeh version 25.4.0 AdMob SDK ke sath perfectly chalta hai
  }
   repositories {
     google()
