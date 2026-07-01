@@ -40,8 +40,8 @@ jobs:
       - name: Build Android APK
         run: |
           cd android
-          # Kotlin version ko 2.1.0 par set karein (Incompatibility hatane ke liye)
-          echo "kotlinVersion=kspVersion" > gradle.properties
+          # Kotlin version ko 2.1.20 par set karein (Incompatibility hatane ke liye)
+          echo "kotlinVersion=2.1.20" > gradle.properties
           echo "android.useAndroidX=true" >> gradle.properties
           echo "android.enableJetifier=true" >> gradle.properties
           
@@ -51,9 +51,9 @@ jobs:
         env:
           ORG_GRADLE_PROJECT_android_compileSdk: 36
           ORG_GRADLE_PROJECT_android_targetSdk: 36
-          # Dependencies 2.1.0 maang rahi hain, isliye yahan 2.1.0 dein
-          ORG_GRADLE_PROJECT_kotlinVersion: kspVersion
-          ORG_GRADLE_PROJECT_android_kotlinVersion: kspVersion
+          # Dependencies 2.1.20 maang rahi hain, isliye yahan 2.1.20 dein
+          ORG_GRADLE_PROJECT_kotlinVersion: 2.1.20
+          ORG_GRADLE_PROJECT_android_kotlinVersion: 2.1.20
           ORG_GRADLE_PROJECT_hermesEnabled: "true"
           GRADLE_OPTS: -Xmx4g -XX:MaxMetaspaceSize=1g
           JAVA_OPTS: -Xmx4g
