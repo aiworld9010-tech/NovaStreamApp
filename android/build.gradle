@@ -6,7 +6,7 @@ buildscript {
     minSdkVersion = 23
     compileSdkVersion = 34
     targetSdkVersion = 34
-    kotlinVersion = "2.0.0" // Yeh version 25.4.0 AdMob SDK ke sath perfectly chalta hai
+    kotlinVersion = "2.1.0" // Yeh version 25.4.0 AdMob SDK ke sath perfectly chalta hai
  }
   repositories {
     google()
@@ -29,3 +29,11 @@ allprojects {
 }
 
 apply plugin: "com.facebook.react.rootproject"
+allprojects {
+    configurations.all {
+        resolutionStrategy {
+            // Google ke naye SDKs ke liye 2.1.0 forced hona zaroori hai
+            force 'org.jetbrains.kotlin:kotlin-stdlib:2.1.0'
+        }
+    }
+}
