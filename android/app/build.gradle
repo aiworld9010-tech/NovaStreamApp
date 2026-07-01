@@ -22,7 +22,7 @@ def jscFlavor = 'io.github.react-native-community:jsc-android:2026004.+'
 
 android {
     compileSdkVersion 36
-    buildToolsVersion "36.0.0"
+    buildToolsVersion "35.0.0"
     ndkVersion = "28.0.12433566"
 
     namespace = 'com.njf9210.NovaStreamApp'
@@ -136,3 +136,13 @@ dependencies {
 }
 
 apply plugin: 'com.google.gms.google-services'
+// Is code ko file ke sab se niche copy-paste karein
+configurations.all {
+    resolutionStrategy {
+        eachDependency { details ->
+            if (details.requested.group == 'androidx.core' && details.requested.name == 'core') {
+                details.useVersion '1.18.0' 
+            }
+        }
+    }
+}
