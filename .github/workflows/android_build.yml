@@ -33,6 +33,10 @@ jobs:
           # Phir prebuild karo
           npx expo prebuild --clean --platform android
           npx expo install expo-build-properties
+          
+      - name: Cleanup Gradle Cache
+        run: |
+          rm -rf ~/.gradle/caches/
 
       - name: Build Android APK
         run: |
