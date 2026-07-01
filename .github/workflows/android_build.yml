@@ -56,6 +56,7 @@ jobs:
           # Library yahan 2.3.0 mang rahi hai
           ORG_GRADLE_PROJECT_kotlinVersion: 2.3.0
           ORG_GRADLE_PROJECT_android_kotlinVersion: 2.3.0
+          ORG_GRADLE_PROJECT_hermesEnabled: "true"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
