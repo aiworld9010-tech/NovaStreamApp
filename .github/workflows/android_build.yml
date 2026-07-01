@@ -31,6 +31,10 @@ jobs:
           rm -rf android
           npx expo prebuild --clean --platform android
 
+      - name: Clear Gradle Cache
+        run: |
+          rm -rf ~/.gradle/caches
+
       - name: Build Android APK
         run: |
           cd android
@@ -38,8 +42,6 @@ jobs:
           ./gradlew clean
           ./gradlew assembleDebug --no-daemon
         env:
-          # Expo build properties automatically picks up settings from app.json
-          # Ye environment variable force karega ke SDK 36 hi use ho
           ORG_GRADLE_PROJECT_android_compileSdk: 36
           ORG_GRADLE_PROJECT_android_targetSdk: 36
           ORG_GRADLE_PROJECT_kotlinVersion: 2.3.0
