@@ -28,29 +28,21 @@ jobs:
 
       - name: Configure SDK and Prebuild
         run: |
-          # Sabse pehle pura android folder uda do taake koi purani cache na rahe
           rm -rf android
-          # Phir prebuild karo
           npx expo prebuild --clean --platform android
-          npx expo install expo-build-properties
-          
-      - name: Cleanup Gradle Cache
-        run: |
-          rm -rf ~/.gradle/caches/
 
       - name: Build Android APK
         run: |
           cd android
-          # Gradle ko force karo ke wo purani sab files bhool jaye
+          chmod +x gradlew
           ./gradlew clean
           ./gradlew assembleDebug --no-daemon
-          -PcompileSdkVersion=36 \
-          -PtargetSdkVersion=36 \
-          -Pandroid.compileSdk=36 \
-          -Pandroid.targetSdk=36
         env:
+          # Expo build properties automatically picks up settings from app.json
+          # Ye environment variable force karega ke SDK 36 hi use ho
           ORG_GRADLE_PROJECT_android_compileSdk: 36
           ORG_GRADLE_PROJECT_android_targetSdk: 36
+          ORG_GRADLE_PROJECT_kotlinVersion: 2.3.0
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
