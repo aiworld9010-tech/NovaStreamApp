@@ -28,17 +28,18 @@ jobs:
 
       - name: Configure SDK and Prebuild
         run: |
+          # Sabse pehle pura android folder uda do taake koi purani cache na rahe
           rm -rf android
-          rm -rf android/app/build
-          npx expo install expo-build-properties
+          # Phir prebuild karo
           npx expo prebuild --clean --platform android
+          npx expo install expo-build-properties
 
       - name: Build Android APK
         run: |
           cd android
-          chmod +x gradlew
+          # Gradle ko force karo ke wo purani sab files bhool jaye
           ./gradlew clean
-          ./gradlew assembleDebug --no-daemon \
+          ./gradlew assembleDebug --no-daemon
           -PcompileSdkVersion=36 \
           -PtargetSdkVersion=36 \
           -Pandroid.compileSdk=36 \
