@@ -21,7 +21,7 @@ def enableMinifyInReleaseBuilds = (findProperty('android.enableMinifyInReleaseBu
 def jscFlavor = 'io.github.react-native-community:jsc-android:2026004.+'
 
 android {
-    compileSdkVersion 36
+    compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion "35.0.0"
     ndkVersion = "28.0.12433566"
 
@@ -29,7 +29,7 @@ android {
     defaultConfig {
         applicationId = 'com.njf9210.NovaStreamApp'
         minSdkVersion = 24
-        targetSdkVersion = 36
+        targetSdkVersion = rootProject.ext.targetSdkVersion
         versionCode = 1
         versionName = "1.0.0"
 

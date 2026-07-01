@@ -26,6 +26,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Clean Cache and Prebuild
+        run: |
+          rm -rf android/build
+          rm -rf android/app/build
+          npx expo prebuild --clean --platform android
+
       - name: Prebuild Android
         run: npx expo prebuild --clean --platform android
 
@@ -34,7 +40,11 @@ jobs:
           cd android
           chmod +x gradlew
           ./gradlew clean
-          ./gradlew assembleDebug --no-daemon -Pandroid.compileSdk=36 -Pandroid.targetSdk=36
+          ./gradlew assembleDebug --no-daemon \
+          -PcompileSdkVersion=36 \
+          -PtargetSdkVersion=36 \
+          -Pandroid.compileSdk=36 \
+          -Pandroid.targetSdk=36
         env:
           ORG_GRADLE_PROJECT_android_compileSdk: 36
           ORG_GRADLE_PROJECT_android_targetSdk: 36
