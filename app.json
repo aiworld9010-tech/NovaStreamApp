@@ -21,6 +21,7 @@
           "android": {
             "compileSdkVersion": 36,
             "targetSdkVersion": 36,
+            "buildToolsVersion": "35.0.0",
             "kotlinVersion": "2.1.20"
           }
         }

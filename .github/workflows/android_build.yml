@@ -28,7 +28,7 @@ jobs:
 
       - name: Configure SDK and Prebuild
         run: |
-          rm -rf android/build
+          rm -rf android
           rm -rf android/app/build
           npx expo install expo-build-properties
           npx expo prebuild --clean --platform android
