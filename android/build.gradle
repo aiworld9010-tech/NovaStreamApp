@@ -6,7 +6,7 @@ buildscript {
     minSdkVersion = 24
     compileSdkVersion = 36
     targetSdkVersion = 36
-    kotlinVersion = "2.3.0"
+    kotlinVersion = "2.0.21"
   }
   repositories {
     google()
@@ -26,15 +26,6 @@ allprojects {
     mavenCentral()
     maven { url = 'https://www.jitpack.io' }
   }
-
-   configurations.all {
-     resolutionStrategy {
-       force 'com.google.android.gms:play-services-ads:23.6.0'
-       force 'com.google.android.gms:play-services-ads-lite:23.6.0'
-       force 'com.google.android.gms:play-services-ads-base:23.6.0'
-       force 'com.google.android.gms:play-services-ads-identifier:18.1.0'
-     }
-   }
 }
 
 apply plugin: "com.facebook.react.rootproject"
