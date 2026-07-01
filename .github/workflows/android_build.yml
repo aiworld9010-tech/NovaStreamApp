@@ -33,11 +33,19 @@ jobs:
 
       - name: Clear Gradle Cache
         run: |
+          ./gradlew --stop
           rm -rf ~/.gradle/caches
 
       - name: Build Android APK
         run: |
           cd android
+          # Create/Overwrite gradle.properties
+          echo "org.gradle.jvmargs=-Xmx2048m -Dkotlin.daemon.jvm.options=-Xmx2048m" > gradle.properties
+          echo "android.useAndroidX=true" >> gradle.properties
+          echo "android.enableJetifier=true" >> gradle.properties
+          # Force set Kotlin version here directly
+          echo "kotlinVersion=2.3.0" >> gradle.properties
+          
           chmod +x gradlew
           ./gradlew clean
           ./gradlew assembleDebug --no-daemon

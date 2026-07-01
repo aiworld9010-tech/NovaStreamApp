@@ -6,8 +6,8 @@ buildscript {
     minSdkVersion = 23
     compileSdkVersion = 36
     targetSdkVersion = 36
-    kotlinVersion = "2.3.0" // Yeh version 25.4.0 AdMob SDK ke sath perfectly chalta hai
- }
+    kotlinVersion = "2.3.0" // Yeh main version hai
+  }
   repositories {
     google()
     mavenCentral()
@@ -26,16 +26,18 @@ allprojects {
     mavenCentral()
     maven { url = 'https://www.jitpack.io' }
   }
+
+  // Yahan resolution strategy ko update kiya hai taake conflict na ho
+  configurations.all {
+    resolutionStrategy {
+      eachDependency { details ->
+        // Har Kotlin dependency ko hamare version (2.3.0) par force karein
+        if (details.requested.group == 'org.jetbrains.kotlin') {
+          details.useVersion "$kotlinVersion"
+        }
+      }
+    }
+  }
 }
 
 apply plugin: "com.facebook.react.rootproject"
-allprojects {
-    configurations.all {
-        resolutionStrategy {
-            // Ads plugin ke liye version force karein
-            force 'com.google.android.gms:play-services-ads:23.6.0'
-            // Kotlin version ko project ke standard par lock karein
-            force 'org.jetbrains.kotlin:kotlin-stdlib:2.1.0'
-        }
-    }
-}
