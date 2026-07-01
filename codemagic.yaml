@@ -13,6 +13,7 @@ workflows:
       - name: Build
         script: |
           cd android
+          chmod +x gradlew
           ./gradlew clean
           ./gradlew assembleDebug --no-daemon
     artifacts:
