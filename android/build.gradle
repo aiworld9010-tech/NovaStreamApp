@@ -6,7 +6,7 @@ buildscript {
     minSdkVersion = 23
     compileSdkVersion = 36
     targetSdkVersion = 36
-    kotlinVersion = "2.1.0" // Yeh main version hai
+    kotlinVersion = "kspVersion" // Yeh main version hai
   }
   repositories {
     google()
