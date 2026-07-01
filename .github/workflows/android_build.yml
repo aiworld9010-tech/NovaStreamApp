@@ -57,6 +57,7 @@ jobs:
           ORG_GRADLE_PROJECT_kotlinVersion: 2.3.0
           ORG_GRADLE_PROJECT_android_kotlinVersion: 2.3.0
           ORG_GRADLE_PROJECT_hermesEnabled: "true"
+          GRADLE_OPTS: -Xmx4g -XX:MaxMetaspaceSize=1g
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
