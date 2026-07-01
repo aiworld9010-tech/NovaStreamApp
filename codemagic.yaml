@@ -4,20 +4,14 @@ workflows:
     max_build_duration: 120
     instance_type: mac_mini_m1
     environment:
-      node: 20
       java: 17
+      node: 20
     scripts:
       - name: Install dependencies
         script: npm install
       - name: Clean and Build
         script: |
-          # Purani build files ko saaf karna
           rm -rf android/app/build
-          
-          # Gradle properties mein stable Kotlin version set karna
-          echo "ext.kotlinVersion = '2.0.21'" >> android/gradle.properties
-          
-          # Build process
           cd android
           chmod +x gradlew
           ./gradlew clean
