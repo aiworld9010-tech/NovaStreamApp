@@ -17,10 +17,6 @@ workflows:
           # Build process
           cd android
           chmod +x gradlew
-          
-          # Gradle wrapper ko 8.7 par set karna taake version mismatch na ho
-          ./gradlew wrapper --gradle-version 8.7
-          
           ./gradlew clean
           ./gradlew assembleDebug
     artifacts:
