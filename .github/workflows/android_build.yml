@@ -33,6 +33,7 @@ jobs:
 
       - name: Clear Gradle Cache
         run: |
+          cd android
           ./gradlew --stop
           rm -rf ~/.gradle/caches
 
