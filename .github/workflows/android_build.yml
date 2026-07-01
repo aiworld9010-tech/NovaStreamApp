@@ -40,24 +40,24 @@ jobs:
       - name: Build Android APK
         run: |
           cd android
-          # Create/Overwrite gradle.properties
-          echo "org.gradle.jvmargs=-Xmx2048m -Dkotlin.daemon.jvm.options=-Xmx2048m" > gradle.properties
+          # Create/Overwrite gradle.properties with higher memory
+          echo "org.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=1g" > gradle.properties
           echo "android.useAndroidX=true" >> gradle.properties
           echo "android.enableJetifier=true" >> gradle.properties
-          # Force set Kotlin version here directly
           echo "kotlinVersion=2.3.0" >> gradle.properties
           
           chmod +x gradlew
           ./gradlew clean
-          ./gradlew assembleDebug --no-daemon
+          ./gradlew assembleDebug --no-daemon --stacktrace
         env:
           ORG_GRADLE_PROJECT_android_compileSdk: 36
           ORG_GRADLE_PROJECT_android_targetSdk: 36
-          # Library yahan 2.3.0 mang rahi hai
           ORG_GRADLE_PROJECT_kotlinVersion: 2.3.0
           ORG_GRADLE_PROJECT_android_kotlinVersion: 2.3.0
           ORG_GRADLE_PROJECT_hermesEnabled: "true"
+          # Memory configuration for CI
           GRADLE_OPTS: -Xmx4g -XX:MaxMetaspaceSize=1g
+          JAVA_OPTS: -Xmx4g
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
