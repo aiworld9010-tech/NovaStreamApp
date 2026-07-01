@@ -32,7 +32,9 @@ apply plugin: "com.facebook.react.rootproject"
 allprojects {
     configurations.all {
         resolutionStrategy {
-            // Google ke naye SDKs ke liye 2.1.0 forced hona zaroori hai
+            // Ads plugin ke liye version force karein
+            force 'com.google.android.gms:play-services-ads:23.6.0'
+            // Kotlin version ko project ke standard par lock karein
             force 'org.jetbrains.kotlin:kotlin-stdlib:2.1.0'
         }
     }

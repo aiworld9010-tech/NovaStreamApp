@@ -13,7 +13,9 @@ workflows:
         script: |
           rm -rf android/app/build
           cd android
-          chmod +x gradlew
-          ./gradlew clean assembleDebug
+          # AdMob SDK ke liye cache clear karna zaroori hai
+          ./gradlew clean
+          # --no-daemon lagane se aksar memory/plugin conflicts ruk jate hain
+          ./gradlew assembleDebug --no-daemon
     artifacts:
       - android/app/build/outputs/apk/debug/*.apk
