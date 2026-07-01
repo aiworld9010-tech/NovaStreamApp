@@ -10,6 +10,8 @@ workflows:
     scripts:
       - name: Install dependencies
         script: npm install
+      - name: Prebuild Android
+        script: npx expo prebuild --clean --platform android
       - name: Build
         script: |
           cd android
