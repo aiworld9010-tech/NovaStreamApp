@@ -40,22 +40,21 @@ jobs:
       - name: Build Android APK
         run: |
           cd android
-          # Create/Overwrite gradle.properties with higher memory
-          echo "org.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=1g" > gradle.properties
+          # Kotlin version ko 2.1.0 par set karein (Incompatibility hatane ke liye)
+          echo "kotlinVersion=2.1.0" > gradle.properties
           echo "android.useAndroidX=true" >> gradle.properties
           echo "android.enableJetifier=true" >> gradle.properties
-          echo "kotlinVersion=2.3.0" >> gradle.properties
           
           chmod +x gradlew
           ./gradlew clean
-          ./gradlew assembleDebug --no-daemon --stacktrace
+          ./gradlew assembleDebug --no-daemon
         env:
           ORG_GRADLE_PROJECT_android_compileSdk: 36
           ORG_GRADLE_PROJECT_android_targetSdk: 36
-          ORG_GRADLE_PROJECT_kotlinVersion: 2.3.0
-          ORG_GRADLE_PROJECT_android_kotlinVersion: 2.3.0
+          # Dependencies 2.1.0 maang rahi hain, isliye yahan 2.1.0 dein
+          ORG_GRADLE_PROJECT_kotlinVersion: 2.1.0
+          ORG_GRADLE_PROJECT_android_kotlinVersion: 2.1.0
           ORG_GRADLE_PROJECT_hermesEnabled: "true"
-          # Memory configuration for CI
           GRADLE_OPTS: -Xmx4g -XX:MaxMetaspaceSize=1g
           JAVA_OPTS: -Xmx4g
 
