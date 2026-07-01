@@ -3,48 +3,19 @@
     "name": "NovaStream",
     "slug": "novastream",
     "version": "1.0.0",
-    "android": {
-      "package": "com.njf9210.NovaStreamApp",
-      "googleServicesFile": "./google-services.json"
-    },
     "plugins": [
-      [
-        "react-native-google-mobile-ads",
-        {
-          "androidAppId": "ca-app-pub-5781943562024029~3915414029",
-          "iosAppId": "ca-app-pub-3940256099942544~1458002511"
+      ["react-native-google-mobile-ads", { "androidAppId": "ca-app-pub-5781943562024029~3915414029" } {"iosAppId": "ca-app-pub-5781943562024029~3915414029" }],
+      ["expo-build-properties", {
+        "android": {
+          "compileSdkVersion": 36,
+          "targetSdkVersion": 36,
+          "kotlinVersion": "1.9.24",
+          "gradleProperties": [
+            { "key": "org.gradle.jvmargs", "value": "-Xmx4g -XX:MaxMetaspaceSize=1g" },
+            { "key": "android.enableJetifier", "value": "true" }
+          ]
         }
-      ],
-      [
-        "expo-build-properties",
-        {
-          "android": {
-            "compileSdkVersion": 36,
-            "targetSdkVersion": 36,
-            "buildToolsVersion": "35.0.0",
-            "kotlinVersion": "2.1.20",
-            "gradleProperties": [
-              {
-                "key": "org.gradle.jvmargs",
-                "value": "-Xmx4g -XX:MaxMetaspaceSize=1g"
-              },
-              {
-                "key": "android.enableJetifier",
-                "value": "true"
-              },
-              {
-                "key": "android.useAndroidX",
-                "value": "true"
-              }
-            ]
-          }
-        }
-      ]
-    ],
-    "extra": {
-      "eas": {
-        "projectId": "db13e83b-d3d4-4b9f-9cf5-7bc7a4bd8d12"
-      }
-    }
+      }]
+    ]
   }
 }
