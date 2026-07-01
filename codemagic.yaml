@@ -6,6 +6,8 @@ workflows:
     environment:
       java: 17
       node: 20
+      COMPILE_SDK_VERSION: 36
+      TARGET_SDK_VERSION: 36
     scripts:
       - name: Install dependencies
         script: npm install
