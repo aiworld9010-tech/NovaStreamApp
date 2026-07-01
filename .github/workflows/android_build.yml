@@ -29,12 +29,12 @@ jobs:
       - name: Prebuild Android
         run: npx expo prebuild --clean --platform android
 
-      # Yeh step force karega ke SDK 36 use ho
       - name: Build Android APK
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon -PcompileSdkVersion=36 -PtargetSdkVersion=36
+          ./gradlew clean
+          ./gradlew assembleDebug --no-daemon -Pandroid.compileSdk=36 -Pandroid.targetSdk=36
         env:
           ORG_GRADLE_PROJECT_android_compileSdk: 36
           ORG_GRADLE_PROJECT_android_targetSdk: 36
